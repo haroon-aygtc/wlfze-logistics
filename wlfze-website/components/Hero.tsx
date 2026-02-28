@@ -83,14 +83,16 @@ export default function Hero() {
             </Link>
           </motion.div>
         </div>
+      </div>
 
-        {/* Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="absolute bottom-0 left-0 right-0 hidden md:block"
-        >
+      {/* Stats Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        className="absolute bottom-8 left-0 right-0 hidden md:block z-10"
+      >
+        <div className="container-custom">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 flex items-center justify-around border border-white/20">
             {[
               { value: "300+", label: "Global Ports" },
@@ -106,8 +108,8 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

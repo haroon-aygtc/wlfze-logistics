@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
 
@@ -91,6 +88,13 @@ const getPostContent = (slug: string) => {
   return posts[slug] || posts["uae-logistics-trends-2026"];
 };
 
+export function generateStaticParams() {
+  return [
+    { slug: "uae-logistics-trends-2026" },
+    { slug: "dafza-guide-2026" },
+  ];
+}
+
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPostContent(params.slug);
 
@@ -99,7 +103,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Hero */}
       <section className="relative pt-32 pb-16 bg-primary">
         <div className="container-custom">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
+          <div className="max-w-4xl">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/80 hover:text-accent mb-6 transition-colors">
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
@@ -124,25 +128,22 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <span>{post.readTime}</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Featured Image */}
       <div className="container-custom -mt-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="rounded-2xl overflow-hidden shadow-2xl">
+        <div className="rounded-2xl overflow-hidden shadow-2xl">
           <img src={post.image} alt={post.title} className="w-full h-[400px] md:h-[500px] object-cover" />
-        </motion.div>
+        </div>
       </div>
 
       {/* Content */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <div
               className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />

@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "WLFZE - World Link Logistics Services FZE | Dubai Logistics",
@@ -34,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable} scroll-smooth`}>
+    <html lang="en" className="scroll-smooth">
       <body className="font-inter bg-neutral-light text-neutral-dark antialiased">
         <Navbar />
         <main>{children}</main>
