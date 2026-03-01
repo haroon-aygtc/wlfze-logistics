@@ -90,7 +90,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="absolute bottom-8 left-0 right-0 hidden md:block z-10"
+        className="absolute bottom-16 left-0 right-0 hidden md:block z-10"
       >
         <div className="container-custom">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 flex items-center justify-around border border-white/20">
